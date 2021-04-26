@@ -4,6 +4,7 @@ let validateSession = require('../middleware/validate-session');
 const Pose = require ('../models/pose');
 ///CREATE
 router.post('/create', validateSession, function (req, res) {
+    // router.post('/create', function (req, res) {
    Pose.create({
         // owner: req.user.id,
         nameEng: req.body.nameEng,
