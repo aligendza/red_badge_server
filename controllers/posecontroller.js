@@ -50,8 +50,8 @@ router.delete('/delete/:id', validateSession, function (req,res) {
 });
 
 
-//FIND ALL POSES
-router.get('/', (req, res) => {
+//FIND ALL POSES BY USER
+router.get('/', validateSession, (req, res) => {
     Pose.findAll({
         // where: {standing: true}
     })
