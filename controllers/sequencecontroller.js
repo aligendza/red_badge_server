@@ -88,7 +88,7 @@ router.delete("/delete/:id", validateSession, function (req, res) {
 });
 
 //FIND ALL SEQUENCES
-router.get("/", (req, res) => {
+router.get("/", validateSession, (req, res) => {
   Sequence.findAll({
     // where: {standing: true}
     include: Pose,
