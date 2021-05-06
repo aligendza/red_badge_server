@@ -79,13 +79,25 @@ router.put(
 
 // })
 
-//DELETE SEQUENCE ENTRY
+//DELETE A SEQUENCE ENTRY
 router.delete("/delete/:id", validateSession, function (req, res) {
   const query = { where: { id: req.params.id } };
   Sequence.destroy(query)
     .then(() => res.status(200).json({ message: "Sequence Deleted" }))
     .catch((err) => res.status(500).json({ error: err }));
 });
+
+//DELETE POSE FROM A SEQUENCE
+router.delete(
+  "/delete/sequenceId/poseId",
+  validateSession,
+  function (req, res) {
+    const query = { where: { id: req.params.id } };
+    Sequence.destroy(query)
+      .then(() => res.status(200).json({ message: "Sequence Deleted" }))
+      .catch((err) => res.status(500).json({ error: err }));
+  }
+);
 
 //FIND ALL SEQUENCES
 router.get("/", validateSession, (req, res) => {
