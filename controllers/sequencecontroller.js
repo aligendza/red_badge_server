@@ -106,7 +106,7 @@ router.delete(
 //FIND ALL POSES IN A SEQUENCE
 router.get("/sequence/:sequenceId", validateSession, (req, res) => {
   Sequence.findOne({
-    // where: {standing: true}
+    where: { id: req.params.sequenceId },
     include: Pose,
   })
     .then((sequences) => res.status(200).json(sequences))
