@@ -92,7 +92,9 @@ router.delete(
   "/delete/:sequenceId/:poseId",
   validateSession,
   function (req, res) {
-    const query = { where: { id: req.params.id } };
+    const query = {
+      where: { sequenceId: req.params.id, poseId: req.params.id },
+    };
     //
     SequencePose.destroy({
       where: {
@@ -104,7 +106,7 @@ router.delete(
 );
 
 //FIND ALL POSES IN A SEQUENCE
-router.get("/sequence/:sequenceId", validateSession, (req, res) => {
+router.get("/:sequenceId", validateSession, (req, res) => {
   Sequence.findOne({
     where: { id: req.params.sequenceId },
     include: Pose,

@@ -30,7 +30,7 @@ router.put("/update/:entryId", validateSession, function (req, res) {
     poseCat: req.body.poseCat,
   };
 
-  const query = { where: { id: req.params.entryId, owner: req.user.id } };
+  const query = { where: { id: req.params.entryId } };
   Pose.update(updatePose, query)
     .then((poses) => res.status(200).json(poses))
     .catch((err) => res.status(500).json({ error: err }));
