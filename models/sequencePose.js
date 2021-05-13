@@ -7,20 +7,20 @@ const SequencePose = db.define('sequencePose', {
         type: DataTypes.INTEGER,
        
     },
-    sequenceId: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: Sequence,
-            key: 'id'
-        }
-    },
-    posesInSequence: {
-        type: DataTypes.JSON,
-        references: {
-            model: Pose,
-            key: 'id'
-        }
-    }
+    // sequenceId: {
+    //     type: DataTypes.INTEGER,
+    //     references: {
+    //         model: Sequence,
+    //         key: 'id'
+    //     }
+    // },
+    // posesInSequence: {
+    //     type: DataTypes.JSON,
+    //     references: {
+    //         model: Pose,
+    //         key: 'id'
+    //     }
+    // }
 })
 // Pose.belongsToMany(Sequence, {through: SequencePose});
 // Sequence.belongsToMany(Pose, {through: SequencePose});

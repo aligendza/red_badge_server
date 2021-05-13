@@ -5,15 +5,17 @@ const SequencePose = require('./sequencePose');
 const UserSequence = require('./userSequence');
 const db = require('../db');
 
-Pose.hasMany(Sequence);
+// Pose.hasMany(Sequence);
 Pose.belongsToMany(Sequence, {through: SequencePose});
-// Sequence.belongsToMany(Pose);
+Sequence.belongsToMany(Pose, {through: SequencePose});
 
 User.hasMany(Sequence);
-User.belongsToMany(Sequence, {through: UserSequence});
+Sequence.belongsTo(User);
+// User.belongsToMany(Sequence, {through: UserSequence});
 
 module.exports = {
     User,
     Pose,
-    Sequence
+    Sequence,
+    SequencePose
 };
